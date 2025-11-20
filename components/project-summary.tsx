@@ -24,13 +24,14 @@ const featuredProjects = [
 export default function ProjectSummary() {
   return (
     <div className="w-full max-w-7xl mx-auto mt-8 sm:mt-12 md:mt-16 lg:mt-20 mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-4 sm:px-6 lg:px-8">
-      <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 md:mb-10">
-        <div className="rounded-full border border-border/40 bg-background/50 backdrop-blur-sm px-2.5 sm:px-3 py-0.5 sm:py-1 flex items-center gap-1.5 sm:gap-2">
-          <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-          <span className="text-[10px] sm:text-xs font-medium tracking-wide">
-            MY WORK
-          </span>
-        </div>
+      <div className="mb-6 sm:mb-8 md:mb-10">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3">
+          Featured Projects
+        </h2>
+        <p className="text-sm sm:text-base text-muted-foreground">
+          Selected projects I've worked on — click to explore the live demo or
+          view source code.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-6 sm:mb-8 md:mb-10">

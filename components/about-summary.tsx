@@ -14,7 +14,7 @@ export default function About() {
         </div>
 
         <p className="mx-auto text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight max-w-4xl text-white">
-          I'm Devraj Chatrin, with over 5+ years of experience in design &
+          I'm Luvy Muhammad Riski, with over 1+ years of experience in
           development
         </p>
 

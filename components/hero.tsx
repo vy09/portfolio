@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Instagram, Star } from "lucide-react";
 import DarkVeil from "./ui/ReactBits/DarkVeil";
 import TiltedCard from "./ui/ReactBits/TiltedCard";
+import RotatingText from "./ui/ReactBits/RotatingText";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -87,19 +88,37 @@ export default function Hero() {
           {/* Left column - text content */}
           <div className="order-2 lg:order-1 space-y-8">
             {/* Greeting */}
-            <div className="flex items-center gap-2 text-accent">
+            <div className="flex items-center gap-2">
               <span className="text-2xl">👋</span>
-              <span className="text-sm font-medium tracking-wide">
+              <span className="text-sm font-medium tracking-wide text-white">
                 Hey! I'm Luvy Muhammad Riski
               </span>
             </div>
-
             {/* Main headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              Building <span className="text-accent">innovative solutions</span>
-              <br />
-              that inspire & deliver.
+              Welcome My Portfolio
             </h1>
+
+            {/* Rotating status text */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl font-medium">
+              <span className="text-muted-foreground">I am ready for</span>
+              <RotatingText
+                texts={[
+                  "Web Development",
+                  "Mobile Development",
+                  "Full-Stack Projects",
+                ]}
+                mainClassName="inline-flex px-3 sm:px-4 md:px-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 text-white overflow-hidden py-1 sm:py-1.5 md:py-2 justify-center rounded-lg shadow-lg"
+                staggerFrom="last"
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "-120%" }}
+                staggerDuration={0.025}
+                splitLevelClassName="overflow-hidden"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={2500}
+              />
+            </div>
 
             {/* Description */}
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
@@ -108,7 +127,6 @@ export default function Hero() {
               achieve business goals through modern technologies and
               user-centered design.
             </p>
-
             {/* Social links and CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               {/* Social links */}
