@@ -6,6 +6,7 @@ import Certificated from "@/components/certificated";
 import Footer from "@/components/footer";
 import About from "@/components/about-summary";
 import ProjectSummary from "@/components/project-summary";
+import ContactMe from "@/components/contactme";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <ProjectSummary />
         <Tools />
         <Certificated />
+        <ContactMe />
       </main>
       <Footer />
     </div>
