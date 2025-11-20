@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
-import Carousel from "./Carousel";
 
 interface Project {
   id: number;
@@ -16,6 +15,7 @@ interface Project {
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
+  const [openId, setOpenId] = useState<number | null>(null);
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -143,15 +143,18 @@ export default function Projects() {
                 key={project.id}
                 className="group p-6 bg-card rounded-lg border border-border hover:border-accent transition-all-smooth hover:shadow-lg hover:shadow-accent/10"
               >
-                <Carousel
-                  items={project.images?.map((img, idx) => ({
-                    id: idx,
-                    title: project.title,
-                    description: project.description,
-                    image: img,
-                  }))}
-                  baseWidth={320}
-                />
+                {project.images && project.images[0] && (
+                  <div className="mb-4">
+                    <div className="w-full h-44 sm:h-56 rounded-md overflow-hidden bg-muted">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={project.images[0]}
+                        alt={`${project.title} screenshot`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                )}
 
                 <h3 className="text-xl font-bold mb-3 text-foreground">
                   {project.title}
@@ -172,26 +175,58 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="flex gap-4">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      className="inline-flex items-center gap-2 text-accent hover:text-accent-foreground hover:bg-accent rounded px-3 py-2 transition-all-smooth"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      className="inline-flex items-center gap-2 text-accent hover:text-accent-foreground hover:bg-accent rounded px-3 py-2 transition-all-smooth"
-                    >
-                      <Github className="w-4 h-4" />
-                      Code
-                    </a>
-                  )}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                  <div className="flex gap-4">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        className="inline-flex items-center gap-2 text-accent hover:text-accent-foreground hover:bg-accent rounded px-3 py-2 transition-all-smooth"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Live
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        className="inline-flex items-center gap-2 text-accent hover:text-accent-foreground hover:bg-accent rounded px-3 py-2 transition-all-smooth"
+                      >
+                        <Github className="w-4 h-4" />
+                        Code
+                      </a>
+                    )}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setOpenId(openId === project.id ? null : project.id)
+                    }
+                    aria-expanded={openId === project.id}
+                    className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-3 py-2 rounded bg-transparent border border-border text-foreground hover:bg-muted transition-all"
+                  >
+                    Details
+                  </button>
                 </div>
+
+                {openId === project.id && (
+                  <div className="mt-4 text-sm text-muted-foreground">
+                    <div className="text-foreground font-semibold mb-2">
+                      Details
+                    </div>
+                    <p className="leading-relaxed">{project.description}</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-sm bg-secondary text-secondary-foreground rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
-import DarkVeil from "./DarkVeil";
-import TiltedCard from "./TiltedCard";
+import DarkVeil from "../ui/ReactBits/DarkVeil";
+import TiltedCard from "../ui/ReactBits/TiltedCard";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +51,7 @@ export default function Hero() {
           <div className="order-2 lg:order-1 text-center lg:text-left px-4 lg:px-0">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 lg:mb-6 leading-tight">
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Luvy Muhammad Riski
+                Fullstack Developer
               </span>
             </h1>
 
@@ -81,7 +80,7 @@ export default function Hero() {
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end px-4 lg:px-0">
             <div className="w-full max-w-[420px]">
               <TiltedCard
-                imageSrc="/assets/profile2.jpeg"
+                imageSrc="/assets/About/profile2.jpeg"
                 altText="Luvy Muhammad Riski"
                 captionText="Luvy Muhammad Riski"
                 containerHeight="300px"
@@ -92,14 +91,11 @@ export default function Hero() {
                 scaleOnHover={1.3}
                 showMobileWarning={false}
                 showTooltip={true}
-                
               />
             </div>
           </div>
         </div>
       </div>
-
-      
     </section>
   );
 }

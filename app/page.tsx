@@ -1,32 +1,22 @@
-"use client"
-
-import { useState } from "react"
-import Navbar from "@/components/navbar"
-import Hero from "@/components/hero"
-import About from "@/components/about"
-import Tools from "@/components/tools"
-import Projects from "@/components/projects"
-import Contact from "@/components/contact"
-import Footer from "@/components/footer"
+"use client";
+import Navbar from "@/components/Navbar/navbar";
+import Hero from "@/components/Hero/hero";
+import Tools from "@/components/Tools/tools";
+import Certificated from "@/components/Certificated/certificated";
+import Footer from "@/components/Footer/footer";
+import About from "@/components/About/aboutme";
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(false)
-
-  const toggleTheme = () => {
-    setIsDark(!isDark)
-  }
-
   return (
-    <div >
-      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+    <div>
+      <Navbar />
       <main className="bg-background text-foreground transition-colors duration-300">
         <Hero />
-        <About />
+        <About/>
         <Tools />
-        <Projects />
-        <Contact />
+        <Certificated />
       </main>
       <Footer />
     </div>
-  )
+  );
 }

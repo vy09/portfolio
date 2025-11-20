@@ -1,7 +1,7 @@
 "use client";
 
-import { Profiler, useEffect, useRef, useState } from "react";
-import ProfileCard from "./ProfileCard";
+import { useEffect, useRef, useState } from "react";
+import ProfileCard from "../ui/ReactBits/ProfileCard";
 // Global background moved to layout; About uses the global background
 
 export default function About() {
@@ -63,7 +63,7 @@ export default function About() {
                 </div>
 
                 {/* Statistics */}
-                <div className="grid grid-cols-2 gap-6 sm:gap-8">
+                <div className="grid grid-cols-2 gap-10 sm:gap-8">
                   <div className="space-y-2">
                     <div className="text-2xl sm:text-3xl font-bold text-primary">
                       20+
@@ -91,8 +91,8 @@ export default function About() {
                     handle="LuvyMuhammadRiski"
                     status="Online"
                     contactText="Contact Me"
-                    avatarUrl="/assets/aboutprofile.png"
-                    miniAvatarUrl="/assets/profile2.jpeg"
+                    avatarUrl="/assets/About/aboutprofile.png"
+                    miniAvatarUrl="/assets/About/profile2.jpeg"
                     showUserInfo={true}
                     enableTilt={true}
                     enableMobileTilt={false}
