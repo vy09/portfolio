@@ -1,10 +1,10 @@
 "use client";
-import Navbar from "@/components/Navbar/navbar";
-import Hero from "@/components/Hero/hero";
-import Tools from "@/components/Tools/tools";
-import Certificated from "@/components/Certificated/certificated";
-import Footer from "@/components/Footer/footer";
-import About from "@/components/About/aboutme";
+import Navbar from "@/components/navbar";
+import Hero from "@/components/hero";
+import Tools from "@/components/tools";
+import Certificated from "@/components/certificated";
+import Footer from "@/components/footer";
+import About from "@/components/about-summary";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
       <main className="bg-background text-foreground transition-colors duration-300">
         <Hero />
-        <About/>
+        <About />
         <Tools />
         <Certificated />
       </main>
