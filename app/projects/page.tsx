@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/navbar";
-import Projects from "@/components/projects";
+import Projects from "@/components/projects-details";
 import Footer from "@/components/footer";
 
 export default function ProjectsPage() {

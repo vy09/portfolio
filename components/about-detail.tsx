@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import ProfileCard from "../ui/ReactBits/ProfileCard";
+import ProfileCard from "./ui/ReactBits/ProfileCard";
 // Global background moved to layout; About uses the global background
 
 export default function About() {

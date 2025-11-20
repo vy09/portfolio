@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import DarkVeil from "../ui/ReactBits/DarkVeil";
-import TiltedCard from "../ui/ReactBits/TiltedCard";
+import { Github, Linkedin, Mail, Instagram, Star } from "lucide-react";
+import DarkVeil from "./ui/ReactBits/DarkVeil";
+import TiltedCard from "./ui/ReactBits/TiltedCard";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,7 +15,7 @@ export default function Hero() {
     return () => cancelAnimationFrame(timer);
   }, []);
 
-  // Ensure the site starts in dark mode and only switches to light when user clicks the scroll indicator
+  // Ensure the site starts in dark mode
   useEffect(() => {
     try {
       document.documentElement.classList.add("dark");
@@ -23,13 +24,49 @@ export default function Hero() {
     }
   }, []);
 
+  const skills = [
+    "Full-Stack Development",
+    "✦",
+    "UI/UX Design",
+    "✦",
+    "React & Next.js",
+    "✦",
+    "Laravel & PHP",
+    "✦",
+    "Mobile Development",
+    "✦",
+    "API Integration",
+    "✦",
+    "Database Design",
+    "✦",
+    "Cloud Solutions",
+  ];
+
+  const featuredProjects = [
+    {
+      id: 1,
+      title: "Aora",
+      category: "Development",
+      year: "2024",
+      image: "https://picsum.photos/seed/aora-mobile/400/600",
+      bgColor: "from-black/20 to-black/10",
+    },
+    {
+      id: 2,
+      title: "Code Screenshot",
+      category: "Development & Design",
+      year: "2024",
+      image: "https://picsum.photos/seed/code-editor/600/400",
+      bgColor: "from-black/20 to-black/10",
+    },
+  ];
+
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 relative"
+      className="min-h-screen flex flex-col items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        {/* DarkVeil background for hero section (positioned behind content) */}
         <DarkVeil
           hueShift={6}
           noiseIntensity={0.01}
@@ -40,62 +77,150 @@ export default function Hero() {
           resolutionScale={1}
         />
       </div>
+
       <div
-        className={`relative z-10 transition-all duration-1000 ${
+        className={`relative z-10 w-full max-w-7xl mx-auto transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        {/* Two-column layout: left = text/buttons, right = TiltedCard */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
-          {/* Left column - text and buttons */}
-          <div className="order-2 lg:order-1 text-center lg:text-left px-4 lg:px-0">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 lg:mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Fullstack Developer
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Left column - text content */}
+          <div className="order-2 lg:order-1 space-y-8">
+            {/* Greeting */}
+            <div className="flex items-center gap-2 text-accent">
+              <span className="text-2xl">👋</span>
+              <span className="text-sm font-medium tracking-wide">
+                Hey! I'm Luvy Muhammad Riski
               </span>
+            </div>
+
+            {/* Main headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+              Building <span className="text-accent">innovative solutions</span>
+              <br />
+              that inspire & deliver.
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground mb-6 lg:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Full-stack developer crafting beautiful, performant digital
-              experiences
+            {/* Description */}
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              I collaborate with teams globally to create pixel-perfect,
+              engaging, and scalable digital experiences that drive results and
+              achieve business goals through modern technologies and
+              user-centered design.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+            {/* Social links and CTA */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              {/* Social links */}
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://www.linkedin.com/in/luvymuhammadriski/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2 text-sm"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  <span className="hidden sm:inline">LINKEDIN</span>
+                </a>
+                <a
+                  href="https://github.com/vy09"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2 text-sm"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                  <span className="hidden sm:inline">GITHUB</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/vxy.co_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2 text-sm"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                  <span className="hidden sm:inline">INSTAGRAM</span>
+                </a>
+                <a
+                  href="mailto:your@email.com"
+                  className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2 text-sm"
+                  aria-label="Email"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span className="hidden sm:inline">EMAIL</span>
+                </a>
+              </div>
+
+              {/* CTA Button */}
               <a
-                href="#projects"
-                className="px-6 sm:px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent hover:text-accent-foreground transition-all-smooth font-medium"
+                href="/about"
+                className="px-8 py-3 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background rounded-full transition-all duration-300 font-medium text-sm"
               >
-                View My Work
-              </a>
-              <a
-                href="#contact"
-                className="px-6 sm:px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg transition-all-smooth font-medium"
-              >
-                Get In Touch
+                Know me better
               </a>
             </div>
           </div>
 
           {/* Right column - TiltedCard */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end px-4 lg:px-0">
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="w-full max-w-[420px]">
               <TiltedCard
                 imageSrc="/assets/About/profile2.jpeg"
                 altText="Luvy Muhammad Riski"
                 captionText="Luvy Muhammad Riski"
-                containerHeight="300px"
-                containerWidth="300px"
-                imageHeight="300px"
-                imageWidth="300px"
+                containerHeight="400px"
+                containerWidth="100%"
+                imageHeight="400px"
+                imageWidth="350px"
                 rotateAmplitude={12}
-                scaleOnHover={1.3}
+                scaleOnHover={1.08}
                 showMobileWarning={false}
                 showTooltip={true}
               />
             </div>
           </div>
         </div>
+
+        {/* Scrolling skills/tags at bottom */}
+        <div className="relative overflow-hidden py-8">
+          <div className="flex animate-scroll">
+            {skills.map((skill, index) => (
+              <span
+                key={index}
+                className="text-muted-foreground text-lg font-medium px-4"
+              >
+                {skill}
+              </span>
+            ))}
+            {skills.map((skill, index) => (
+              <span
+                key={`duplicate-${index}`}
+                className="text-muted-foreground text-lg font-medium px-4"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          display: flex;
+          animation: scroll 30s linear infinite;
+          white-space: nowrap;
+        }
+      `}</style>
     </section>
   );
 }
