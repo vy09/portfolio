@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backend Dashboard</title>
+    <link rel="stylesheet" href="/dashboard/styles.css" />
+    <script defer src="/dashboard/app.js"></script>
+  </head>
+  <body>
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+
+    <main class="shell">
+      <section class="hero-card">
+        <div>
+          <p class="eyebrow">Admin Panel</p>
+          <h1>Backend Dashboard</h1>
+          <p class="subtitle">
+            Monitor project counts, skills, certifications, and incoming
+            messages from a clean admin view.
+          </p>
+        </div>
+
+        <div class="token-panel">
+          <label for="tokenInput">JWT Token</label>
+          <div class="token-row">
+            <input
+              id="tokenInput"
+              type="password"
+              placeholder="Paste your admin access token"
+              autocomplete="off"
+            />
+            <button id="saveTokenBtn" type="button">Save</button>
+          </div>
+          <p class="helper-text">
+            The dashboard uses <code>/api/dashboard/statistics</code> and
+            requires an admin bearer token.
+          </p>
+        </div>
+      </section>
+
+      <section class="toolbar">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>Portfolio health at a glance</h2>
+        </div>
+        <div class="toolbar-actions">
+          <button id="refreshBtn" type="button">Refresh data</button>
+        </div>
+      </section>
+
+      <section class="stats-grid" id="statsGrid">
+        <article class="stat-card">
+          <span class="stat-label">Projects</span>
+          <strong class="stat-value" data-stat="totalProjects">-</strong>
+          <span class="stat-note">Published work items</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Skills</span>
+          <strong class="stat-value" data-stat="totalSkills">-</strong>
+          <span class="stat-note">Technologies in portfolio</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Certifications</span>
+          <strong class="stat-value" data-stat="totalCertifications">-</strong>
+          <span class="stat-note">Credential entries</span>
+        </article>
+        <article class="stat-card accent">
+          <span class="stat-label">Messages</span>
+          <strong class="stat-value" data-stat="totalMessages">-</strong>
+          <span class="stat-note">Total contact messages</span>
+        </article>
+        <article class="stat-card warning">
+          <span class="stat-label">Unread</span>
+          <strong class="stat-value" data-stat="unreadMessages">-</strong>
+          <span class="stat-note">Messages awaiting review</span>
+        </article>
+      </section>
+
+      <section class="activity-card">
+        <div class="activity-head">
+          <div>
+            <p class="section-label">Status</p>
+            <h2>Live dashboard feed</h2>
+          </div>
+          <span class="status-pill" id="statusPill">Idle</span>
+        </div>
+        <p class="status-copy" id="statusMessage">
+          Add an admin token and refresh to load the latest statistics.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
